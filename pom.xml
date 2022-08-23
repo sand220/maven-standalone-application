@@ -38,16 +38,17 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Releases Nexus Repository</name>
-	      <url>http://3.111.23.14:8081/repository/maven-Release/</url>
+	      <url>http://3.111.23.14:8081/repository/maven-releases/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Snapshot Nexus Repository </name>
-	      <url>http://3.111.23.14:8081/repository/maven-Snapshot/</url>
+	      <url>http://3.111.23.14:8081/repository/Walmart-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
+	
 	<!-- Committing and updating changes through Maven, by using below mvn command. 
 		For Commiting mvn -Dmessage="Updated using maven" scm:checkin For updating 
 		mvn scm:update -->
