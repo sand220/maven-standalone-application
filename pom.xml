@@ -18,23 +18,23 @@
 	<description>Maven Standalone Application</description>
 
 	<properties>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sonar.host.url>http://13.233.59.26:9000/</sonar.host.url>
 		<sonar.login>192b57b9731490e4c6c4a9c9d464f0a7cf099e4a</sonar.login>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>4.13.2</version>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
-<distributionManagement>
-	
+
+	<distributionManagement>
 	    <repository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Releases Nexus Repository</name>
@@ -43,36 +43,29 @@
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>Mithun Technologies Snapshot Nexus Repository </name>
+	      <name>Mithun Technologies Snapshot Nexus Repository</name>
 	      <url>http://3.111.23.14:8081/repository/Walmart-snapshot/</url>
 	    </snapshotRepository>
-	    
 	</distributionManagement>
 	
-	<!-- Committing and updating changes through Maven, by using below mvn command. 
-		For Commiting mvn -Dmessage="Updated using maven" scm:checkin For updating 
-		mvn scm:update -->
-	<!--
-	<scm>
-		<connection>scm:git:https://github.com/MithunTechnologiesDevOps/maven-standalone-application</connection>
-		<developerConnection>scm:git:https://github.com/MithunTechnologiesDevOps/maven-standalone-application</developerConnection>
-		<tag>HEAD</tag>
-		<url>https://github.com/MithunTechnologiesDevOps/maven-standalone-application</url>
-	</scm>
-
-	<issueManagement>
-		<system>GitHub</system>
-		<url>https://github.com/MithunTechnologiesDevOps/maven-standalone-application/issues</url>
-	</issueManagement>
-
-	-->
 	<build>
 	  <plugins>
+	    <!-- Maven Compiler Plugin -->
 	    <plugin>
-	      <!-- Build an executable JAR -->
+	      <groupId>org.apache.maven.plugins</groupId>
+	      <artifactId>maven-compiler-plugin</artifactId>
+	      <version>3.8.1</version>
+	      <configuration>
+	        <source>${maven.compiler.source}</source>
+	        <target>${maven.compiler.target}</target>
+	      </configuration>
+	    </plugin>
+
+	    <!-- Maven JAR Plugin -->
+	    <plugin>
 	      <groupId>org.apache.maven.plugins</groupId>
 	      <artifactId>maven-jar-plugin</artifactId>
-	      <version>11</version>
+	      <version>3.2.0</version>
 	      <configuration>
 	        <archive>
 	          <manifest>
@@ -85,5 +78,4 @@
 	    </plugin>
 	  </plugins>
 	</build>
-	
 </project>
